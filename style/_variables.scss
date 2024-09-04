@@ -1,0 +1,562 @@
+$f100: Pretendard-Thin;
+$f200: Pretendard-ExtraLight;
+$f300: Pretendard-Light;
+$f400: Pretendard-Regular;
+$f500: Pretendard-Medium;
+$f600: Pretendard-SemiBold;
+$f700: Pretendard-Bold;
+$f800: Pretendard-ExtraBold;
+$f900: Pretendard-Black;
+
+$mainColor: #222;
+
+$url: "../img/";
+
+$w430: 430px;
+$w768: 768px;
+$w1240: 1240px;
+$w1790: 1790px;
+
+// responsive 영역
+@mixin w430 {
+    @media (max-width: #{$w430}) {
+        @content;
+    }
+}
+
+@mixin w768 {
+    @media (max-width: #{$w768}) {
+        @content;
+    }
+}
+
+@mixin w1240 {
+    @media (max-width: #{$w1240}) {
+        @content;
+    }
+}
+
+@mixin w1790 {
+    @media (max-width: #{$w1790}) {
+        @content;
+    }
+}
+
+// inner 영역
+@mixin inner {
+    width: 100%;
+    max-width: 1790px;
+    margin: 0 auto;
+
+    @include w1790 {
+        max-width: 85%;
+    }
+
+    @include w1240 {
+        max-width: 95%;
+    }
+}
+
+@mixin textBox__ {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .Mtext {
+        width: 50%;
+
+        &.topText {
+            width: 615px;
+            font-family: $f300;
+            font-size: 55px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        &.botText {
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            font-family: $f400;
+            font-size: 28px;
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+    }
+
+    @include w1790 {
+
+        .Mtext {
+
+            &.topText {
+                width: 50%;
+                font-size: 45px;
+            }
+        }
+    }
+
+    @include w1240 {
+
+        .Mtext {
+
+            &.topText {
+                font-size: 32px;
+            }
+
+            &.botText {
+                font-size: 18px;
+            }
+        }
+    }
+
+    @include w768 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: flex-end;
+        align-items: normal;
+
+        .Mtext {
+
+            &.topText {
+                width: 100%;
+                font-size: 28px;
+                line-height: 1.7;
+                text-align: center;
+                margin-bottom: 50px;
+            }
+
+            &.botText {
+                width: 100%;
+                height: auto;
+                font-size: 16px;
+                text-align: center;
+            }
+        }
+    }
+
+    @include w430 {}
+}
+
+@mixin text__wr {
+
+    .text_ {
+        font-family: $f400;
+        font-size: 28px;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .subText_ {
+        width: 55%;
+        font-family: $f300;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        font-size: 22px;
+
+        > a {
+            font-size: 22px;
+            letter-spacing: 1px;
+            text-decoration: underline;
+        }
+    }
+
+    @include w1790 {
+
+        .subText_ {
+            width: 65%;
+            font-size: 18px;
+
+            > a {
+                font-size: 22px;
+            }
+        }
+    }
+
+    @include w1240 {
+
+        .text_ {
+            font-size: 18px;
+        }
+
+        .subText_ {
+            font-size: 16px;
+
+            > a {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @include w768 {
+
+        .subText_ {
+            width: 100%;
+        }
+    }
+
+    @include w430 {
+
+        .text_ {
+            font-size: 16px;
+        }
+
+        .subText_ {
+            font-size: 14px;
+
+            > a {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@mixin information__box__wr {
+    width: 100%;
+    padding-bottom: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .in__title {
+        width: 325px;
+        margin-right: 30px;
+        font-family: $f300;
+        font-size: 33px;
+        line-height: 1.3;
+    }
+
+    .in__text__box {
+        @include text__wr;
+        width: 45%;
+
+        .text_ {
+            width: 100%;
+        }
+    }
+
+    @include w1240 {
+        padding-bottom: 200px;
+
+        .in__title {
+            width: 200px;
+            font-size: 24px;
+        }
+
+        .in__text__box {
+            width: calc(100% - 300px);
+        }
+    }
+
+    @include w768 {
+        padding-bottom: 100px;
+
+        .in__title {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .in__text__box {
+            width: 100%;
+        }
+
+        .information__box__wr {
+            padding-bottom: 50px;
+        }
+    }
+}
+
+@mixin awards__wr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .text__wr {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .icon {
+            font-size: 46px;
+            line-height: 1.3;
+            margin-right: 20px;
+        }
+
+        .subText_ {
+            width: auto;
+            font-size: 24px;
+            line-height: 1.3;
+        }
+    }
+
+    .family__wr {
+        width: 1024px;
+
+        .list {
+            display: grid;
+            gap: 50px 20px;
+            grid-template-columns: repeat(3, 1fr);
+
+            >li {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .fm__name {
+                    font-family: $f400;
+                    font-size: 20px;
+                    line-height: 1.3;
+                    margin-bottom: 15px;
+                }
+
+                .fm__link {
+                    height: 25px;
+
+                    img {
+                        object-fit: contain;
+                        transition: all .3s ease-in-out;
+                        transform-origin: left top;
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include w1790 {
+
+        .text__wr {
+            width: 255px;
+        }
+
+        .family__wr {
+            width: calc(100% - 325px);
+            margin-left: 70px;
+        }
+    }
+
+    @include w1240 {
+
+        .text__wr {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .family__wr {
+            width: 100%;
+            margin: 0;
+
+            .list {
+                gap: 50px 20px;
+
+                >li {
+
+                    .fm__name {
+                        font-size: 17px;
+                    }
+
+                    .fm__link {
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include w768 {
+
+        .text__wr {
+
+            .icon {
+                font-size: 30px;
+            }
+
+            .subText_ {
+                font-size: 18px;
+            }
+        }
+
+        .family__wr {
+
+            .list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    @include w430 {
+
+        .family__wr {
+
+            .list {
+
+                >li {
+
+                    .fm__name {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin support__wr {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .text_ {
+        width: 650px;
+    }
+
+    .support__list {
+        width: calc(100% - 900px);
+        margin-left: 250px;
+        display: grid;
+        gap: 60px 30px;
+        grid-template-columns: repeat(4, 1fr);
+
+        >li {
+
+            img {
+                height: 45px;
+                object-fit: contain;
+            }
+        }
+    }
+
+    @include w1790 {
+        margin-top: 120px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .text__wr {
+            width: 50%;
+
+            .text_ {
+                width: 100%;
+            }
+        }
+
+        .support__list {
+            width: calc(50% - 30px);
+            margin-left: 30px;
+            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: start;
+
+            >li {
+
+                >span {
+                    height: 45px;
+                }
+            }
+        }
+    }
+
+    @include w1240 {
+
+        .text__wr {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .support__list {
+            width: 100%;
+            margin: 0;
+            justify-items: center;
+            gap: 50px 10px;
+        }
+    }
+
+    @include w768 {
+
+        .support__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include w430 {}
+}
+
+@mixin frm__item {
+    width: 100%;
+    height: 100px;
+    font-family: $f400;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #222;
+    border: 0;
+    border-bottom: 1px solid #222;
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+        font-family: $f300;
+        font-size: 20px;
+        line-height: 1.3;
+        color: #ccc;
+    }
+
+    &.contact__Textarea {
+        height: 300px;
+    }
+
+    @include w430 {
+        height: 60px;
+        font-size: 15px;
+
+        &::placeholder {
+            font-size: 15px;
+        }
+
+        &.contact__Textarea {
+            height: 150px;
+        }
+    }
+}
+
+@mixin clipPath {
+    margin-bottom: 40px;
+    clip-path: inset(0 10% 0 10% round 20px);
+    will-change: opacity, transform;
+    transition: opacity 1.35s cubic-bezier(.4, 0, .2, 1), transform 0.2s cubic-bezier(.4, 0, .2, 1), clip-path 0.7s ease-in-out;
+
+    &.active {
+        clip-path: inset(0 round 20px);
+    }
+
+    @include w1240 {
+        margin-bottom: 20px;
+    }
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -470px;
+    }
+}
